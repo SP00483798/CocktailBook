@@ -1,5 +1,7 @@
 import UIKit
+import SwiftUI
 
+@available(iOS 15.0, *)
 class MainScreenViewController: UIViewController {
     
     private let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
@@ -7,7 +9,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+      /*
         let scrollView = UIScrollView()
         view.addSubview(scrollView)
         
@@ -37,5 +39,10 @@ class MainScreenViewController: UIViewController {
                 }
             }
         }
+       */
+        let childVc = UIHostingController(rootView: MainPageView())
+        addChild(childVc)
+        view.addSubview(childVc.view)
+        childVc.view.frame = view.frame
     }
 }
